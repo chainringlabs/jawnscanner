@@ -41,12 +41,14 @@ jobs:
         run: cargo test
 
   # Runs on every event. On pull_request the reusable workflow scans in OSV
-  # diff mode; on push and schedule it runs the absolute OSV scan + cargo audit.
+  # diff mode; on push and schedule it runs the absolute OSV scan + cargo-deny advisories.
   supply-chain:
     name: Supply chain
     permissions:
       contents: read
     uses: chainringlabs/ci/.github/workflows/supply-chain.yml@f8888baa2af7a041fe6a5a11f8fe0be182357cc3 # v1.2.1
+    with:
+      cargo-deny: true
     secrets: inherit
 
   # The organization's shared publish workflow: pushes to GHCR (latest, semver,
