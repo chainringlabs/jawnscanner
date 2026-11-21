@@ -102,7 +102,7 @@ curl http://localhost:9101/metrics
 ### Pre-built Image
 
 ```bash
-docker run -d -p 9101:9101 ghcr.io/tgrecojr/jawnscanner:latest
+docker run -d -p 9101:9101 ghcr.io/chainringlabs/jawnscanner:latest
 ```
 
 ### From Source
